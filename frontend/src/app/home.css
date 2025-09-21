@@ -1,0 +1,15 @@
+:root {
+  --primary: #1173d4;
+  --background-light: #f6f7f8;
+  --background-dark: #101922;
+}
+
+body {
+  background-color: var(--background-light);
+  font-family: "Inter", sans-serif;
+}
+
+.dark body {
+  background-color: var(--background-dark);
+  color: #e2e8f0;
+}
