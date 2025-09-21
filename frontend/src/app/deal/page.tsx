@@ -9,6 +9,103 @@ export const metadata = {
   description: 'Browse all investment opportunities and company profiles',
 };
 
+// Static sample data
+const staticCompanyData: Company[] = [
+  {
+    CompanyName: "Multipl Fintech Solutions Pvt LTD (Multipl)",
+    WhatCompanyDoes: "A wealthtech platform pioneering 'Spendvesting,' linking India's mutual fund market with its consumption economy.",
+    Industry: "Wealthtech",
+    Region: "India",
+    TeamSize: 50,
+    NumberOfFounders: 2,
+    FoundersQualification: "IIT/IIM Alumni",
+    FundingStage: "Pre-Series A",
+    Ask: 250000000,
+    Valuation: 1370000000,
+    PreviousRounds: "Seed Round ₹5 Cr",
+    Traction: "700K+ registered users; 200K+ KYC verified. Assets Under Advisory (AUA): ₹100 Cr live. Target Goals Set: ₹600 Cr+ in active goals.",
+    Revenue: 0,
+    MRR: 0,
+    ARR: 0,
+    ProjectedARRYear: 2027,
+    GrossMargin: 0.055,
+    UnitEconomics: "LTV:CAC Ratio: 20x (₹9,000 LTV vs. ₹450 CAC)",
+    BurnRate: 0,
+    Runway: 0,
+    GrowthRate: 2,
+    TAM: 0,
+    SAM: 0,
+    SOM: 0,
+    MarketSize: 0,
+    TargetGeographies: "India",
+    Competitors: "Groww, Zerodha Coin, ET Money",
+    Founders: "Tech and Finance Veterans",
+    LogoURL: "https://lh3.googleusercontent.com/aida-public/AB6AXuCKH4luNbI2RQpfnXUtSABGKXxKgAPgzq-WBKrvTuRg45x8ExaQrZpg9qn1yAmGPOrY6aenCm_iiDlBl700aKAYDnwTFrx3t5_9107UkAfQQk-pM-fAWiQoNFRUXn50B5K1WtWEh2HpMDNl0kFh30f5aj72Kx7PT2UuzFexvWFQXgfih-rzryP7M7aVvg0zNefxqsgARbGfxMrwioX9MLtP10MKd8mcHsqWnj9sQmXXl6y74ov3P8_AsOtrxhsgGHmnB5OnDSAINRI"
+  },
+  {
+    CompanyName: "TechFlow Innovations",
+    WhatCompanyDoes: "AI-powered workflow automation for enterprise clients",
+    Industry: "Enterprise Software",
+    Region: "Bangalore",
+    TeamSize: 25,
+    NumberOfFounders: 3,
+    FoundersQualification: "Former Microsoft, Google employees",
+    FundingStage: "Series A",
+    Ask: 500000000,
+    Valuation: 2000000000,
+    PreviousRounds: "Pre-Series A ₹15 Cr",
+    Traction: "50+ enterprise clients, ₹5 Cr ARR",
+    Revenue: 50000000,
+    MRR: 4166667,
+    ARR: 50000000,
+    ProjectedARRYear: 2026,
+    GrossMargin: 0.8,
+    UnitEconomics: "Strong unit economics with 80% gross margins",
+    BurnRate: 5000000,
+    Runway: 24,
+    GrowthRate: 150,
+    TAM: 10000000000,
+    SAM: 2000000000,
+    SOM: 200000000,
+    MarketSize: 500000000,
+    TargetGeographies: "India, Southeast Asia",
+    Competitors: "UiPath, Automation Anywhere",
+    Founders: "Ex-FAANG team",
+    LogoURL: "https://lh3.googleusercontent.com/aida-public/AB6AXuCKH4luNbI2RQpfnXUtSABGKXxKgAPgzq-WBKrvTuRg45x8ExaQrZpg9qn1yAmGPOrY6aenCm_iiDlBl700aKAYDnwTFrx3t5_9107UkAfQQk-pM-fAWiQoNFRUXn50B5K1WtWEh2HpMDNl0kFh30f5aj72Kx7PT2UuzFexvWFQXgfih-rzryP7M7aVvg0zNefxqsgARbGfxMrwioX9MLtP10MKd8mcHsqWnj9sQmXXl6y74ov3P8_AsOtrxhsgGHmnB5OnDSAINRI"
+  },
+  {
+    CompanyName: "GreenTech Solutions",
+    WhatCompanyDoes: "Sustainable energy management systems for smart cities",
+    Industry: "CleanTech",
+    Region: "Mumbai",
+    TeamSize: 40,
+    NumberOfFounders: 2,
+    FoundersQualification: "MIT/Stanford graduates",
+    FundingStage: "Series B",
+    Ask: 1000000000,
+    Valuation: 5000000000,
+    PreviousRounds: "Series A ₹50 Cr",
+    Traction: "100+ smart city projects, 25% market share",
+    Revenue: 200000000,
+    MRR: 16666667,
+    ARR: 200000000,
+    ProjectedARRYear: 2025,
+    GrossMargin: 0.65,
+    UnitEconomics: "Positive unit economics with strong margins",
+    BurnRate: 15000000,
+    Runway: 36,
+    GrowthRate: 200,
+    TAM: 50000000000,
+    SAM: 10000000000,
+    SOM: 1000000000,
+    MarketSize: 2000000000,
+    TargetGeographies: "India, Middle East",
+    Competitors: "Schneider Electric, Siemens",
+    Founders: "Clean Energy Veterans",
+    LogoURL: "https://lh3.googleusercontent.com/aida-public/AB6AXuCKH4luNbI2RQpfnXUtSABGKXxKgAPgzq-WBKrvTuRg45x8ExaQrZpg9qn1yAmGPOrY6aenCm_iiDlBl700aKAYDnwTFrx3t5_9107UkAfQQk-pM-fAWiQoNFRUXn50B5K1WtWEh2HpMDNl0kFh30f5aj72Kx7PT2UuzFexvWFQXgfih-rzryP7M7aVvg0zNefxqsgARbGfxMrwioX9MLtP10MKd8mcHsqWnj9sQmXXl6y74ov3P8_AsOtrxhsgGHmnB5OnDSAINRI"
+  }
+];
+
 // Utility function to create URL-friendly slugs
 function createCompanySlug(companyName: string): string {
   return companyName
@@ -21,28 +118,15 @@ function createCompanySlug(companyName: string): string {
 }
 
 export default async function CompaniesPage() {
+  // Try to get real data from database first, fallback to static data
   let companies: Company[] = [];
-  let error: string | null = null;
-
+  
   try {
     companies = await getCompaniesData();
-  } catch (e) {
-    console.error('Error fetching companies:', e);
-    error = 'Failed to load companies data';
-  }
-
-  if (error) {
-    return (
-      <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
-        <Header />
-        <div className="p-8 max-w-6xl mx-auto">
-          <h1 className="text-3xl font-bold mb-6 text-gray-900 dark:text-gray-100">Companies</h1>
-          <div className="bg-red-50 border border-red-200 rounded-lg p-4">
-            <p className="text-red-600">{error}</p>
-          </div>
-        </div>
-      </div>
-    );
+  } catch (error) {
+    console.error("Failed to fetch companies data:", error);
+    // Fallback to static data if database fails
+    companies = staticCompanyData;
   }
 
   return (

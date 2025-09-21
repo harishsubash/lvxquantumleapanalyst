@@ -1,16 +1,16 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // Remove output: 'export' for now as it doesn't work with server-side functions
-  // output: 'export',
+  // Enable static export for fully static site
+  output: 'export',
   
   // Fix turbopack root directory warning
   turbopack: {
     root: __dirname
   },
   
-  // Move serverComponentsExternalPackages to serverExternalPackages
-  serverExternalPackages: ['@google-cloud/bigquery'],
+  // Remove serverExternalPackages since we're not using server functions anymore
+  // serverExternalPackages: ['@google-cloud/bigquery'],
   
   // Configure images for external domains
   images: {
@@ -28,6 +28,8 @@ const nextConfig: NextConfig = {
         pathname: '/**',
       },
     ],
+    // For static export, we need to disable the default image optimization
+    unoptimized: true,
   },
 };
 
