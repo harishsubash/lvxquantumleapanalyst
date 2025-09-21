@@ -1,9 +1,18 @@
 
 import Image from "next/image";
 import { getCompaniesData } from "../../lib/bigquery";
+import { Company } from "../../types/company";
 
 export default async function Home() {
-  const data = await getCompaniesData();
+  let data: Company[] = [];
+  let error: string | null = null;
+
+  try {
+    data = await getCompaniesData();
+  } catch (e) {
+    console.error('Error fetching companies data:', e);
+    error = 'Failed to load companies data';
+  }
 
   // Get column headers from the first data row
   const headers = data.length > 0 ? Object.keys(data[0]) : [];
@@ -12,7 +21,6 @@ export default async function Home() {
     <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
       <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
         <Image
-          className="dark:invert"
           src="/next.svg"
           alt="Next.js logo"
           width={180}
@@ -20,25 +28,33 @@ export default async function Home() {
           priority
         />
         <div>
-          <h1 className="text-xl font-bold mb-4">Companies Data</h1>
-          <table className="table-auto">
-            <thead>
-              <tr>
-                {headers.map((header) => (
-                  <th key={header} className="px-4 py-2">{header}</th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {data.map((row, index) => (
-                <tr key={index}>
+          <h1 className="text-xl font-bold mb-4 text-gray-900">Companies Data</h1>
+          {error ? (
+            <p className="text-red-500">{error}</p>
+          ) : data.length === 0 ? (
+            <p>No data available</p>
+          ) : (
+            <table className="table-auto border-collapse border border-gray-300">
+              <thead>
+                <tr className="bg-gray-100">
                   {headers.map((header) => (
-                    <td key={header} className="border px-4 py-2">{row[header]}</td>
+                    <th key={header} className="border border-gray-300 px-4 py-2 text-left text-gray-900 font-semibold">{header}</th>
                   ))}
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {data.map((row, index) => (
+                  <tr key={index} className={index % 2 === 0 ? "bg-white" : "bg-gray-50"}>
+                    {headers.map((header) => (
+                      <td key={header} className="border border-gray-300 px-4 py-2 text-gray-900">
+                        {String((row as any)[header] || '')}
+                      </td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          )}
         </div>
       </main>
       <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
@@ -74,7 +90,7 @@ export default async function Home() {
         </a>
         <a
           className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https.nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
           target="_blank"
           rel="noopener noreferrer"
         >
