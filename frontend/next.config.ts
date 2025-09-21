@@ -9,10 +9,26 @@ const nextConfig: NextConfig = {
     root: __dirname
   },
   
-  // Ensure server components work properly
-  experimental: {
-    serverComponentsExternalPackages: ['@google-cloud/bigquery']
-  }
+  // Move serverComponentsExternalPackages to serverExternalPackages
+  serverExternalPackages: ['@google-cloud/bigquery'],
+  
+  // Configure images for external domains
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'placehold.co',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'lh3.googleusercontent.com',
+        port: '',
+        pathname: '/**',
+      },
+    ],
+  },
 };
 
 export default nextConfig;

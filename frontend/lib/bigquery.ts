@@ -34,12 +34,6 @@ export async function getCompaniesData(): Promise<Company[]> {
 
     const [rows] = await bigquery.query(queryOptions);
     
-    // Log the columns from the first row for debugging
-    if (rows.length > 0) {
-      console.log('Available columns from BigQuery:', Object.keys(rows[0]));
-      console.log('Sample data structure:', JSON.stringify(rows[0], null, 2));
-    }
-    
     return rows as Company[];
   } catch (error) {
     console.error('BigQuery error:', error);
@@ -63,7 +57,7 @@ export async function getTableSchema(): Promise<string[]> {
     };
 
     const [rows] = await bigquery.query(queryOptions);
-    return rows.map((row: any) => row.column_name);
+    return rows.map((row: Record<string, unknown>) => row.column_name as string);
   } catch (error) {
     console.error('Schema query error:', error);
     return [];
@@ -76,8 +70,6 @@ export async function getCompaniesDataWithSchema(): Promise<{ data: Company[], c
       getCompaniesData(),
       getTableSchema()
     ]);
-    
-    console.log('Table columns from schema:', columns);
     
     return { data, columns };
   } catch (error) {

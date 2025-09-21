@@ -1,7 +1,7 @@
-import Image from "next/image";
 import { getCompaniesData } from "../../lib/bigquery";
 import { Company } from "../../types/company";
 import Link from "next/link";
+import Image from "next/image";
 import Header from "./components/Header";
 import { ArrowRight } from "lucide-react";
 
@@ -12,17 +12,15 @@ export const metadata = {
 
 export default async function Home() {
   let data: Company[] = [];
-  let error: string | null = null;
 
   try {
     data = await getCompaniesData();
   } catch (e) {
     console.error('Error fetching companies data:', e);
-    error = 'Failed to load companies data';
   }
 
   // Helper function to format currency
-  const formatCurrency = (value: any) => {
+  const formatCurrency = (value: number | undefined | null) => {
     if (!value || isNaN(value)) return 'N/A';
     return new Intl.NumberFormat('en-IN', {
       style: 'currency',
@@ -32,14 +30,8 @@ export default async function Home() {
     }).format(value);
   };
 
-  // Helper function to format numbers
-  const formatNumber = (value: any) => {
-    if (!value || isNaN(value)) return 'N/A';
-    return new Intl.NumberFormat('en-US').format(value);
-  };
-
   // Helper function to format percentage
-  const formatPercentage = (value: any) => {
+  const formatPercentage = (value: number | undefined | null) => {
     if (!value || isNaN(value)) return 'N/A';
     return `${value}%`;
   };
@@ -77,10 +69,12 @@ export default async function Home() {
                 <Link key={index} href={`/deal/${company.CompanyName?.toLowerCase().replace(/[^\w\s-]/g, '').replace(/\s+/g, '-').replace(/-+/g, '-').trim().replace(/^-|-$/g, '')}`}>
                   <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md hover:shadow-lg transition-all cursor-pointer">
                     <div className="flex items-start gap-4 mb-4">
-                      <img 
+                      <Image 
                         alt={`${company.CompanyName} logo`} 
                         className="w-16 h-16 object-cover rounded-lg" 
                         src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKH4luNbI2RQpfnXUtSABGKXxKgAPgzq-WBKrvTuRg45x8ExaQrZpg9qn1yAmGPOrY6aenCm_iiDlBl700aKAYDnwTFrx3t5_9107UkAfQQk-pM-fAWiQoNFRUXn50B5K1WtWEh2HpMDNl0kFh30f5aj72Kx7PT2UuzFexvWFQXgfih-rzryP7M7aVvg0zNefxqsgARbGfxMrwioX9MLtP10MKd8mcHsqWnj9sQmXXl6y74ov3P8_AsOtrxhsgGHmnB5OnDSAINRI" 
+                        width={64}
+                        height={64}
                       />
                       <div className="flex-1">
                         <h3 className="text-lg font-bold text-gray-900 dark:text-gray-100">{company.CompanyName}</h3>

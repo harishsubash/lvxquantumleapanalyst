@@ -85,6 +85,24 @@ export interface Company {
   
   /** Information about the founding team */
   Founders: string;
+  
+  /** Company logo URL */
+  LogoURL?: string;
+  
+  /** First risk factor identified */
+  Risk1?: string;
+  
+  /** Second risk factor identified */
+  Risk2?: string;
+  
+  /** Investment deal notes and analysis */
+  DealNotes?: string;
+  
+  /** Investment recommendation (INVEST, PASS, etc.) */
+  InvestmentRecommendation?: string;
+  
+  /** Exit strategy analysis */
+  ExitStrategy?: string;
 }
 
 /**

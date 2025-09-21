@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { getCompaniesData } from "../../../lib/bigquery";
 import { Company } from "../../../types/company";
 import Header from "../components/Header";
@@ -96,7 +97,7 @@ export default async function CompaniesPage() {
                   >
                     <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-lg transition-all p-6">
                       <div className="flex items-start gap-4 mb-4">
-                        <img
+                        <Image
                           alt={`${company.CompanyName} logo`}
                           className="w-12 h-12 object-cover rounded-lg"
                           src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKH4luNbI2RQpfnXUtSABGKXxKgAPgzq-WBKrvTuRg45x8ExaQrZpg9qn1yAmGPOrY6aenCm_iiDlBl700aKAYDnwTFrx3t5_9107UkAfQQk-pM-fAWiQoNFRUXn50B5K1WtWEh2HpMDNl0kFh30f5aj72Kx7PT2UuzFexvWFQXgfih-rzryP7M7aVvg0zNefxqsgARbGfxMrwioX9MLtP10MKd8mcHsqWnj9sQmXXl6y74ov3P8_AsOtrxhsgGHmnB5OnDSAINRI"

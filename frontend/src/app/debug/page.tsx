@@ -78,7 +78,7 @@ export default async function DebugPage() {
                 'ProjectedARRYear', 'GrossMargin', 'UnitEconomics', 'BurnRate',
                 'Runway', 'GrowthRate', 'TAM', 'SAM', 'SOM', 'MarketSize',
                 'TargetGeographies', 'Competitors', 'Founders'
-              ].map((field: string, index: number) => (
+              ].map((field: string) => (
                 <div 
                   key={field} 
                   className={`p-2 rounded ${
