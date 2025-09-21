@@ -10,6 +10,13 @@
 .logo {
   display: flex;
   align-items: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.logo:hover {
+  opacity: 0.8;
 }
 
 .logo svg {
@@ -26,4 +33,9 @@
   margin-left: 1rem;
   color: #fff;
   text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.nav a:hover {
+  color: #3b82f6;
 }

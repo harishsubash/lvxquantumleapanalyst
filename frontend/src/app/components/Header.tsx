@@ -4,7 +4,7 @@ import "./header.css";
 export default function Header() {
   return (
     <header className="header">
-      <div className="logo">
+      <Link href="/" className="logo">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="48"
@@ -17,13 +17,7 @@ export default function Header() {
           />
         </svg>
         <h1>LVXQuantumLeapAI</h1>
-      </div>
-      <nav className="nav">
-        <Link href="/">Home</Link>
-        <a href="#">About</a>
-        <a href="#">Services</a>
-        <a href="#">Contact</a>
-      </nav>
+      </Link>
     </header>
   );
 }
